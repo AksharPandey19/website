@@ -1,0 +1,280 @@
+/* Global Reset and Styling */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #0a192f; /* Dark Background */
+    color: #ccd6f6; /* Light Text */
+    line-height: 1.6;
+}
+
+a {
+    text-decoration: none;
+    color: #64ffda; /* Accent Color */
+}
+
+ul {
+    list-style-type: none;
+}
+
+/* Header Styling */
+header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 50px 0;
+    margin-bottom: 40px;
+    background-color: #0a192f;
+    text-align: center;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: 1200px;
+    padding: 0 50px;
+    position: fixed;
+    top: 0;
+    background-color: rgba(10, 25, 47, 0.85);
+    backdrop-filter: blur(10px);
+}
+
+.logo h1 {
+    font-size: 2rem;
+    color: #ccd6f6;
+}
+
+.nav-links {
+    display: flex;
+    gap: 20px;
+}
+
+.nav-links a {
+    color: #ccd6f6;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: #64ffda;
+}
+
+.intro {
+    margin-top: 150px;
+    margin-bottom: 160px;
+}
+
+.big-heading {
+    font-size: 3.5rem;
+    color: #ffffff;
+}
+
+.sub-heading {
+    font-size: 1.5rem;
+    margin-top: 20px;
+    color: #a8b2d1;
+}
+
+.cta-btn {
+    margin-top: 150px; /* Adjusted margin for lower positioning */
+    padding: 15px 30px;
+    background-color: #64ffda;
+    color: #0a192f;
+    border-radius: 5px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.cta-btn:hover {
+    background-color: #52e0b3;
+}
+
+/* About Section */
+.about-section {
+    max-width: 900px;
+    margin: 80px auto;
+    text-align: center;
+}
+
+.about-section h2 {
+    font-size: 2.5rem;
+    color: #ffffff;
+    margin-bottom: 20px;
+}
+
+.about-section p {
+    color: #a8b2d1;
+    font-size: 1.2rem;
+}
+
+/* Projects Section */
+.projects-section {
+    padding: 50px 0;
+    background-color: #112240;
+    text-align: center;
+}
+
+.projects-section h2 {
+    color: #ffffff;
+    font-size: 2.5rem;
+    margin-bottom: 40px;
+}
+
+.projects-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.project-card {
+    background-color: #0a192f;
+    padding: 30px;
+    border-radius: 10px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-card h3 {
+    color: #ffffff;
+    margin-bottom: 10px;
+}
+
+.project-card p {
+    color: #a8b2d1;
+    margin-bottom: 20px;
+}
+
+.project-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.2);
+}
+
+.project-link {
+    padding: 10px 20px;
+    background-color: #64ffda;
+    color: #0a192f;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.project-link:hover {
+    background-color: #52e0b3;
+}
+
+/* Contact Section */
+.contact-section {
+    text-align: center;
+    padding: 50px 0;
+}
+
+.contact-section h2 {
+    font-size: 2.5rem;
+    color: #ffffff;
+    margin-bottom: 20px;
+}
+
+.contact-section p {
+    color: #a8b2d1;
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+}
+
+.social-media {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.social-media a {
+    margin: 0 10px;
+    display: inline-block;
+}
+
+.social-media img {
+    width: 30px; /* Adjust icon size */
+    height: 30px; /* Adjust icon size */
+    transition: transform 0.3s ease;
+}
+
+.social-media a:hover img {
+    transform: scale(1.1); /* Slight zoom effect on hover */
+}
+
+
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 30px;
+    background-color: #0a192f;
+    color: #a8b2d1;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        padding: 20px;
+    }
+
+    .nav-links {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .big-heading {
+        font-size: 2.5rem;
+    }
+
+    .sub-heading {
+        font-size: 1.2rem;
+    }
+
+    .cta-btn {
+        margin-top: 80px; /* Adjusted for smaller screens */
+        font-size: 1rem;
+        padding: 10px 20px;
+    }
+
+    .about-section h2, .projects-section h2, .contact-section h2 {
+        font-size: 2rem;
+    }
+
+    .about-section p, .contact-section p {
+        font-size: 1rem;
+    }
+
+    .project-card {
+        padding: 20px;
+    }
+
+    .project-card h3 {
+        font-size: 1.5rem;
+    }
+
+    .project-card p {
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .big-heading {
+        font-size: 2rem;
+    }
+
+    .sub-heading {
+        font-size: 1rem;
+    }
+
+    .cta-btn {
+        margin-top: 60px; /* Further adjustment for mobile */
+        padding: 8px 16px;
+    }
+}
