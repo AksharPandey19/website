@@ -6,11 +6,28 @@ document.addEventListener('DOMContentLoaded', () => {
     let moveCount = 1; // Initialize the move count
     let userColor = 'w'; // Initialize the user's color as white
 
+    // Load audio files
+    const moveAudio = new Audio('audio/move.mp3');
+    const captureAudio = new Audio('audio/capture.mp3');
+    const checkAudio = new Audio('audio/check.mp3');
+    const checkmateAudio = new Audio('audio/checkmate.mp3');
+
+    // Function to initialize the game
+    const initGame = () => {
+        board.position('start'); // Set the board to the starting position
+        moveHistory.textContent = ''; // Clear move history
+        moveCount = 1; // Reset move count
+        userColor = 'w'; // Set user's color to white
+    };
+
+    // Play sound when the page loads
+
     // Function to make a random move for the computer
     const makeRandomMove = () => {
         const possibleMoves = game.moves();
 
         if (game.game_over()) {
+            checkmateAudio.play(); // Play checkmate sound
             alert("Checkmate!");
         } else {
             const randomIdx = Math.floor(Math.random() * possibleMoves.length);
@@ -18,7 +35,7 @@ document.addEventListener('DOMContentLoaded', () => {
             game.move(move);
             board.position(game.fen());
             recordMove(move, moveCount); // Record and display the move with move count
-            moveCount++; // Increament the move count
+            moveCount++; // Increment the move count
         }
     };
 
@@ -44,6 +61,19 @@ document.addEventListener('DOMContentLoaded', () => {
         });
 
         if (move === null) return 'snapback';
+
+        // Play sound effects
+        moveAudio.play();
+        
+        // Check for capturing
+        if (move.captured) {
+            captureAudio.play(); // Play capture sound
+        }
+
+        // Check for check
+        if (game.in_check()) {
+            checkAudio.play(); // Play check sound
+        }
 
         window.setTimeout(makeRandomMove, 250);
         recordMove(move.san, moveCount); // Record and display the move with move count
@@ -71,13 +101,13 @@ document.addEventListener('DOMContentLoaded', () => {
     // Initialize the chessboard
     board = Chessboard('board', boardConfig);
 
+    // Call the initGame function to start the game
+    initGame();
+
     // Event listener for the "Play Again" button
     document.querySelector('.play-again').addEventListener('click', () => {
         game.reset();
-        board.start();
-        moveHistory.textContent = '';
-        moveCount = 1;
-        userColor = 'w';
+        initGame(); // Re-initialize the game
     });
 
     // Event listener for the "Set Position" button
