@@ -296,6 +296,10 @@ let wordList = [
         hint: "related to programming"
     },
     {
+        word: "mycbseguide",
+        hint: "Educational Software"
+    },
+    {
         word: "matrix",
         hint: "science fiction movie"
     },
