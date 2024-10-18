@@ -1,19 +1,26 @@
-<html lang="en"><head>
+<!DOCTYPE html>
+<html lang="en">
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Projects</title>
     <link rel="stylesheet" href="style.css">
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-Y4T7GVCD4V"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-Y4T7GVCD4V');
+    </script>
+    
+    <!-- Include particles.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/particles.js/2.0.0/particles.min.js"></script>
+    
 </head>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-Y4T7GVCD4V"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
 
-  gtag('config', 'G-Y4T7GVCD4V');
-</script>
 <body>
+    <div id="particles-js"></div>
+
     <header>
         <div class="navbar">
             <div class="logo">
@@ -45,7 +52,6 @@
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="30" height="30">
                         <path d="M23.498 6.186a3.003 3.003 0 0 0-2.116-2.12C19.5 4 12 4 12 4s-7.5 0-9.382.066A3.003 3.003 0 0 0 .5 6.186 36.095 36.095 0 0 0 0 12c0 1.986.166 3.936.5 5.814a3.003 3.003 0 0 0 2.118 2.12C4.5 20 12 20 12 20s7.5 0 9.382-.066a3.003 3.003 0 0 0 2.116-2.12C23.5 15.936 24 14.986 24 12c0-1.986-.166-3.936-.502-5.814zM10 15V9l6 3-6 3z"></path>
                     </svg>
-                    
                 </a>
 
                 <a title="hackerRank" href="https://www.hackerrank.com/profile/akshar_nanu" target="_blank" aria-label="HackerRank">
@@ -57,6 +63,7 @@
     
     <main>
         <section id="about" class="about-section">
+            <!-- Particle.js container -->
             <h2>About Me</h2>
             <p>I'm a passionate developer who loves creating interactive applications.</p>
         </section>
@@ -154,19 +161,36 @@
                     <p>Like that "Unbeatable" Tetris</p>
                     <a href="tetris/index.htm" class="project-link">View Project</a>
                 </div>
+                <div class="project-card">
+                    <h3>Project 18: Snake Game
+                    </h3>
+                    <p>Snake Game Play It</p>
+                    <a href="snakee/index.html" class="project-link">View Project</a>
+                </div>
+                <div class="project-card">
+                    <h3>Project 19: Text To Speech
+                    </h3>
+                    <p>I always wanted this.To Prank call my friends😀</p>
+                    <a href="Text to Speech/index.html" class="project-link">View Project</a>
+                </div>
             
-        </section>
+        </div></section>
 
         <section id="contact" class="contact-section">
             <h2>Contact Me</h2>
-            <p>I'm looking forward to hearing from you!</p>
-            <a href="mailto:akshar.nanu@gmail.com" class="cta-btn">Get In Touch</a>
+            <p>You can reach me at <a href="mailto:aksharpandey2050@gmail.com">aksharpandey2050@gmail.com</a></p>
         </section>
     </main>
 
     <footer>
-        <p>© 2024 Akshar Pandey</p>
+        <p>&copy; 2024 Akshar Pandey. All rights reserved.</p>
     </footer>
 
-
-</body></html>
+    <!-- Initialize particles.js -->
+    <script>
+        particlesJS.load('particles-js', 'particles.json', function() {
+            console.log('callback - particles.js config loaded');
+        });
+    </script>
+</body>
+</html>
