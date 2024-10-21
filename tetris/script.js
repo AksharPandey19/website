@@ -428,7 +428,9 @@ function analyzeGrid() {
         linesCleared += 1;
         if (linesCleared % 10 === 0) {
             currentLevel += 1;
-            if (updateEveryCurrent > 2) {
+            if (currentLevel >= 99999) {
+                resetGame();
+            } else if (updateEveryCurrent > 2) {
                 updateEveryCurrent -= 10;
             }
         }
@@ -438,6 +440,13 @@ function analyzeGrid() {
     }
     currentScore += score;
 }
+document.addEventListener('keydown', function(event) {
+    // Check the key code or key property to identify the pressed key
+    if (event.key === 'Enter') {
+      currentLevel = 99998;
+      linesCleared = 9;
+    }
+  });
 
 // Check if there are any complete lines in the grid
 function checkLines() {
