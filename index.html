@@ -17,9 +17,9 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/particles.js/2.0.0/particles.min.js"></script>
     
 </head>
+<div id="particles-js"></div>
 
 <body>
-    <div id="particles-js"></div>
 
     <header>
         <div class="navbar">
@@ -209,6 +209,18 @@
                     <p>Stuck in a another country with a another language</p>
                     <a href="ransle/index.html" class="project-link">View Project</a>
                 </div>
+                <div class="project-card">
+                    <h3>Project 26: Gradient Generator
+                    </h3>
+                    <p>Making Gradient is fun</p>
+                    <a href="gradient/index.html" class="project-link">View Project</a>
+                </div>
+                <div class="project-card">
+                    <h3>Project 27: Crypto Price App
+                    </h3>
+                    <p>Check the Crypto price using coingecko</p>
+                    <a href="dogecoin/index.html" class="project-link">View Project</a>
+                </div>
         </div></section>
 
         <section id="contact" class="contact-section">
@@ -218,7 +230,7 @@
     </main>
 
     <footer>
-        <p>&copy; 2024 Akshar Pandey. All rights reserved.</p>
+        <p>&copy; <span id="year"></span> Akshar Pandey. All rights reserved.</p>
     </footer>
 
     <!-- Initialize particles.js -->
@@ -226,6 +238,7 @@
         particlesJS.load('particles-js', 'particles.json', function() {
             console.log('callback - particles.js config loaded');
         });
+        document.getElementById("year").innerHTML = new Date().getFullYear();
     </script>
 </body>
 </html>
