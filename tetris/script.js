@@ -419,32 +419,50 @@ function pseudoRandom(previous) {
     }
     return roll;
 }
-
 // Analyze the grid and clear lines if necessary
 function analyzeGrid() {
     let score = 0;
     while (checkLines()) {
         score += 100;
         linesCleared += 1;
-        if (linesCleared % 10 === 0) {
+
+        // Increase the level every 10 lines cleared, if under 99999
+        if (linesCleared % 10 === 0 && currentLevel < 99999) {
             currentLevel += 1;
-            if (currentLevel >= 99999) {
-                resetGame();
-            } else if (updateEveryCurrent > 2) {
-                updateEveryCurrent -= 10;
-            }
+        }
+
+        // Adjust the falling speed based on level, stop reducing speed after level 99999
+        if (currentLevel < 99999 && updateEveryCurrent > 2) {
+            updateEveryCurrent -= 1;
+        }
+
+        // If the level is 10 or more, reset the game (except if it's at or above 99999)
+        if (currentLevel >= 10 && currentLevel < 99999) {
+            resetGame();  // Reset the game if level is 10 or more but less than 99999
+            return;       // Exit the function after resetting the game
         }
     }
+
+    // Double the score if multiple lines are cleared
     if (score > 100) {
         score *= 2;
     }
     currentScore += score;
+
+    // Once level reaches 99999, stop further increases
+    if (currentLevel >= 99999) {
+        currentLevel = 99999;  // Cap the level at 99999
+    }
 }
+
+
+
+
 document.addEventListener('keydown', function(event) {
     // Check the key code or key property to identify the pressed key
     if (event.key === 'Enter') {
-      currentLevel = 99998;
-      linesCleared = 9;
+      currentLevel = 99997;
+      linesCleared = 11;
     }
   });
 
